@@ -5,6 +5,7 @@
   "homepage": "https://shashankvengala1.github.io/portfolio/",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
