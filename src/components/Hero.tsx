@@ -31,7 +31,7 @@ const Hero = () => {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 2 + 1,
-        color: i % 3 === 0 ? '#0A2342' : i % 3 === 1 ? '#2CA6A4' : '#F5F7FA',
+        color: ['#38bdf8', '#6ee7b7', '#dbeafe'][i % 3], // sky-blue, mint, pale-blue
         speedX: Math.random() * 0.5 - 0.25,
         speedY: Math.random() * 0.5 - 0.25,
       });
@@ -61,7 +61,7 @@ const Hero = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(44, 166, 164, ${0.2 * (1 - distance / 100)})`;
+            ctx.strokeStyle = `rgba(110, 231, 183, ${0.2 * (1 - distance / 100)})`; // mint connection
             ctx.lineWidth = 0.5;
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(other.x, other.y);
@@ -84,31 +84,31 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900">
       <div ref={particlesRef} className="absolute inset-0 z-0"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-3/5 mb-10 md:mb-0">
-            <p className="text-[#2CA6A4] dark:text-[#3DB9B7] font-medium mb-2 tracking-wider">DATABASE DEVELOPER</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0A2342] dark:text-white mb-4">
-              Shashank <span className="text-[#2CA6A4] dark:text-[#3DB9B7]">Vengala</span>
+            <p className="text-teal-400 dark:text-teal-300 font-medium mb-2 tracking-wider">DATABASE DEVELOPER</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+              Shashank <span className="text-teal-400 dark:text-teal-300">Vengala</span>
             </h1>
-            <div className="h-1 w-20 bg-[#2CA6A4] dark:bg-[#3DB9B7] mb-6"></div>
-            <p className="text-lg text-[#333333] dark:text-[#E0E0E0] mb-8 max-w-xl">
-              A results-driven Data Engineer with over 3+ years of experience in database development and administration, 
+            <div className="h-1 w-20 bg-teal-400 mx-auto mb-6 rounded"></div>
+            <p className="text-gray-700 dark:text-gray-300 text-lg mb-8 max-w-xl">
+              A results-driven Data Engineer with over 3+ years of experience in database development and administration,
               specializing in PostgreSQL and end-to-end data pipeline implementation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <div className="flex items-center text-[#333333] dark:text-[#E0E0E0]">
-                <Mail className="w-5 h-5 mr-2 text-[#2CA6A4] dark:text-[#3DB9B7]" />
+              <div className="flex items-center text-gray-700 dark:text-gray-300">
+                <Mail className="w-5 h-5 mr-2 text-teal-400 dark:text-teal-300" />
                 <span>shashaank.shashank@gmail.com</span>
               </div>
-              <div className="flex items-center text-[#333333] dark:text-[#E0E0E0]">
-                <Phone className="w-5 h-5 mr-2 text-[#2CA6A4] dark:text-[#3DB9B7]" />
+              <div className="flex items-center text-gray-700 dark:text-gray-300">
+                <Phone className="w-5 h-5 mr-2 text-teal-400 dark:text-teal-300" />
                 <span>+91-8499883581</span>
               </div>
-              <div className="flex items-center text-[#333333] dark:text-[#E0E0E0]">
-                <MapPin className="w-5 h-5 mr-2 text-[#2CA6A4] dark:text-[#3DB9B7]" />
+              <div className="flex items-center text-gray-700 dark:text-gray-300">
+                <MapPin className="w-5 h-5 mr-2 text-teal-400 dark:text-teal-300" />
                 <span>Hyderabad, INDIA</span>
               </div>
             </div>
@@ -117,7 +117,7 @@ const Hero = () => {
                 href="https://www.linkedin.com/in/shashankvengala"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 border-2 border-[#2CA6A4] dark:border-[#3DB9B7] text-[#2CA6A4] dark:text-[#3DB9B7] font-medium rounded-md transition-all duration-300 hover:bg-[#2CA6A4] hover:text-white dark:hover:bg-[#3DB9B7] dark:hover:text-[#121212] transform hover:-translate-y-1 hover:shadow-lg"
+                className="px-6 py-3 border-2 border-teal-400 dark:border-teal-300 text-teal-400 dark:text-teal-300 font-medium rounded-md transition-all duration-300 hover:bg-teal-400 hover:text-white dark:hover:bg-teal-300 dark:hover:text-gray-900 transform hover:-translate-y-1 hover:shadow-lg"
               >
                 Connect on LinkedIn
               </a>
@@ -125,7 +125,7 @@ const Hero = () => {
                 href={`${import.meta.env.BASE_URL}SHASHANK_VENGALA_Database_Developer_Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-[#2CA6A4] hover:bg-[#249a98] dark:bg-[#3DB9B7] dark:hover:bg-[#35a3a1] text-white font-medium rounded-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                className="px-6 py-3 bg-teal-400 hover:bg-teal-500 dark:bg-teal-300 dark:hover:bg-teal-400 text-white font-medium rounded-md transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
               >
                 View Résumé
               </a>
@@ -134,7 +134,7 @@ const Hero = () => {
 
           {/* Profile Picture */}
           <div className="md:w-2/5 flex justify-center">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-[#2CA6A4] dark:border-[#3DB9B7] shadow-lg">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-teal-400 dark:border-teal-300 shadow-lg">
               <img
                 src={`${import.meta.env.BASE_URL}Shashank%20Passport%20photo.jpeg`}
                 alt="Shashank Vengala"
@@ -146,7 +146,7 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#about" className="text-[#2CA6A4] dark:text-[#3DB9B7]">
+        <a href="#about" className="text-teal-400 dark:text-teal-300">
           <ArrowDown className="w-6 h-6" />
         </a>
       </div>
