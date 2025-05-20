@@ -22,10 +22,10 @@ const Contact = () => {
     setIsSubmitting(true);
 
     emailjs.send(
-      'service_56b25wa',     // your EmailJS service ID
-      'template_fnc0aj5',    // your EmailJS template ID
+      'service_56b25wa',
+      'template_fnc0aj5',
       formData,
-      'tVnV7tqHL5XxmAHpt'    // your EmailJS public key
+      'tVnV7tqHL5XxmAHpt'
     )
     .then(() => {
       setIsSubmitting(false);
@@ -132,7 +132,8 @@ const Contact = () => {
                         value={(formData as any)[field]}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-300 transition text-gray-900 dark:text-white"
+                        placeholder={field === 'name' ? 'Enter your name' : 'Enter your email'}
+                        className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-300 transition text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                       />
                     </div>
                   ))}
@@ -149,7 +150,8 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-300 transition text-gray-900 dark:text-white"
+                    placeholder="Enter a subject"
+                    className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-300 transition text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   />
                 </div>
 
@@ -164,7 +166,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-300 transition text-gray-900 dark:text-white"
+                    placeholder="Type your message..."
+                    className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-300 transition text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   />
                 </div>
 
